@@ -1,5 +1,6 @@
 package io.agileintelligence.ppmtool.service;
 
+import com.sun.deploy.panel.ITreeNode;
 import io.agileintelligence.ppmtool.domain.Project;
 import io.agileintelligence.ppmtool.exception.ProjectIDException;
 import io.agileintelligence.ppmtool.repo.ProjectRepo;
@@ -31,6 +32,10 @@ public class ProjectService {
             throw new ProjectIDException("Project with ID '" + projectIdentifier + "' does not exist");
         }
         return project;
+    }
+
+    public Iterable<Project> findAll() {
+        return projectRepo.findAll();
     }
 
 
