@@ -1,6 +1,5 @@
 package io.agileintelligence.ppmtool.service;
 
-import com.sun.deploy.panel.ITreeNode;
 import io.agileintelligence.ppmtool.domain.Project;
 import io.agileintelligence.ppmtool.exception.ProjectIDException;
 import io.agileintelligence.ppmtool.repo.ProjectRepo;
@@ -39,4 +38,8 @@ public class ProjectService {
     }
 
 
+    public void deleteProjectByProjectIdentifier(String projectIdentifier) {
+        Project projectToDelete = findProjectByProjectIdentifier(projectIdentifier);
+        projectRepo.delete(projectToDelete);
+    }
 }
