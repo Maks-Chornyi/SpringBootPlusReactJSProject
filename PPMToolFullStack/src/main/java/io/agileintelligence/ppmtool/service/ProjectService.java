@@ -19,10 +19,10 @@ public class ProjectService {
     public Project saveOrUpdateProject(Project project) {
         try {
             project.setProjectIdentifier(project.getProjectIdentifier().toUpperCase());
-            return projectRepo.save(project);
         } catch (Exception e) {
             throw new ProjectIDException("Project ID '" + project.getProjectIdentifier().toUpperCase() + "' already exists");
         }
+        return projectRepo.save(project);
     }
 
     public Project findProjectByProjectIdentifier(String projectIdentifier) {
